@@ -120,8 +120,8 @@ class MissionHandler:
         self._nuke_steam_cache_(app_id)
         files_to_download = self._get_collection_details_(collection_id)
         file_mapping = self._get_file_details_(files_to_download)
-        self._download_file_(user, app_id, list(file_mapping.keys())[0])
-        self._move_file_(app_id, {list(file_mapping.keys())[0]: file_mapping[list(file_mapping.keys())[0]]})
+        self._download_file_(user, app_id, file_mapping.keys())
+        self._move_file_(app_id, file_mapping)
 
 
 if __name__ == '__main__':
