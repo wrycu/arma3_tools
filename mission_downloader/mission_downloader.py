@@ -68,8 +68,6 @@ class MissionHandler:
         return mapping
 
     def _download_file_(self, user, app_id, file_ids):
-        if not isinstance(file_ids, list):
-            file_ids = [file_ids]
         file_ids = ['+workshop_download_item {} {}'.format(app_id, x) for x in file_ids]
         file_ids.insert(0, self.steamcmd_path)
         file_ids.insert(1, '+login {}'.format(user))
