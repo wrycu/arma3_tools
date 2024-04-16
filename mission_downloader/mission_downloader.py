@@ -89,6 +89,9 @@ class MissionHandler:
         for details in reply.json()['response']['publishedfiledetails']:
             if details['filename']:
                 mapping[details['publishedfileid']] = details['filename']
+            elif details['title']:
+                print("[INFO]: {} has no filename associated with it, falling back to title".format(details['publishedfileid']))
+                mapping[details['publishedfileid']] = details['title']
             else:
                 print("[WARN]: {} has no filename associated with it".format(details['publishedfileid']))
         return mapping
